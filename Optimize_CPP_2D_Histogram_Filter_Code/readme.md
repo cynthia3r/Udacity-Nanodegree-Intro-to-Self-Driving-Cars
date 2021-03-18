@@ -1,9 +1,9 @@
-# Project Overview:
+# Project overview
 The project involves optimization of C++ 2D Histogram Filter code to improve efficiency (mainly execution speed and memory usage) by using various C++ optimization strategies.
 
-## INSTRUCTIONS:
+## Getting started
 
-This workspace contains the C++ 2D Histogram filter code. As part of this project, you will optimize the code in these files to see how fast you can get main.cpp to run.
+This workspace contains the C++ 2D Histogram filter code. As part of this project, you will optimize the code in the project workspace files to see how fast you can get main.cpp to run.
 
 ### Project structure
 There are eight C++ files and seven header files. Each file other than main.cpp contains a function that carries out a specific part of a histogram filter. 
@@ -32,7 +32,7 @@ If you open main.cpp, you will see that the program runs each of the histogram f
 - normalizes the results to calculate probabilities
 - moves the robot
 
-### Task
+### Tasks
 1. Read through and understand the initial starter code. Run the code using these commands in a terminal window and notedown the current runtime:
 	- ```g++ -std=c++17 main.cpp blur.cpp initialize_beliefs.cpp move.cpp normalize.cpp print.cpp sense.cpp zeros.cpp```
 	-  ```Note: The -std=c++17 option tells the compiler to use version 17 of C++.```
@@ -42,7 +42,7 @@ If you open main.cpp, you will see that the program runs each of the histogram f
 2. Optimize the code to make the histogram filter functions run faster utilizing the C++ optimization techniques as learned in the Udacity Self Driving Car course. You can test your results in the terminal using the same commands given previously. Also note down and compare the runtime of the optimized code and the starter code.
 
 
-## Runtime Starter code:
+### Runtime starter code:
 ```
 number of iterations: 10000 
 duration milliseconds initialize beliefs 48.259
@@ -51,4 +51,4 @@ duration milliseconds blur 145.719
 duration milliseconds normalize 54.776
 duration milliseconds move 52.106
 ```
-## Runtime Optimized code:
+### Runtime optimized code:
