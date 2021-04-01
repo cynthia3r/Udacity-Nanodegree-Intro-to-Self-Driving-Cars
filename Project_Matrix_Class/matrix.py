@@ -80,12 +80,7 @@ class Matrix(object):
 
         # TODO COMPLETED - your code here
         # The trace of an  𝑛×𝑛  square matrix  𝐀  is the sum of the elements on the main diagonal of the matrix.
-        trace_of_matrix = 0
-        for i in range(self.h):
-            trace_of_matrix += self.g[i][i]
-        
-        return trace_of_matrix
-            
+        return sum([self.g[i][i] for i in range(self.h)])
 
     def inverse(self):
         """
@@ -198,13 +193,7 @@ class Matrix(object):
         #   
         # TODO COMPLETED- your code here
         #
-        negative_matrix = []
-        for row in range(self.h):
-            new_row = []
-            for col in range(self.w):
-                new_row.append(-1 * self[row][col])
-            negative_matrix.append(new_row) 
-        return Matrix(negative_matrix)
+        return Matrix([[-self.g[row][col] for row in range(self.h)] for col in range(self.w)])
         
 
     def __sub__(self, other):
@@ -214,7 +203,7 @@ class Matrix(object):
         #   
         # TODO COMPLETED - your code here
         #
-        return self + (-1 * other)
+        return (self + -other)
 
     def __mul__(self, other):
         """
