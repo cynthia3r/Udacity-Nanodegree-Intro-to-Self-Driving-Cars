@@ -2,26 +2,30 @@ import math
 from math import sqrt
 import numbers
 
+
 def zeroes(height, width):
-        """
-        Creates a matrix of zeroes.
-        """
-        g = [[0.0 for _ in range(width)] for __ in range(height)]
-        return Matrix(g)
+    """
+    Creates a matrix of zeroes.
+    """
+    g = [[0.0 for _ in range(width)] for __ in range(height)]
+    return Matrix(g)
+
 
 def identity(n):
-        """
-        Creates a n x n identity matrix.
-        """
-        I = zeroes(n, n)
-        for i in range(n):
-            I.g[i][i] = 1.0
-        return I
-    
+    """
+    Creates a n x n identity matrix.
+    """
+    I = zeroes(n, n)
+    for i in range(n):
+        I.g[i][i] = 1.0
+    return I
+
+
 # Receives a matrix and a row number.
 # The output should be the row in the form of a list
 def get_row(matrix, row_num):
     return matrix[row_num]
+
 
 # Receives a matrix and a column number.
 # The output should be the column in the form of a list
@@ -31,12 +35,14 @@ def get_column(matrix, column_number):
         column.append(matrix[row][column_number])
     return column
 
+
 def dot_product(vector_one, vector_two):
     result = 0
 
     for i in range(len(vector_one)):
         result += vector_one[i] * vector_two[i]
     return result
+
 
 class Matrix(object):
 
@@ -49,7 +55,7 @@ class Matrix(object):
     #
     # Primary matrix math methods
     #############################
- 
+
     def determinant(self):
         """
         Calculates the determinant of a 1x1 or 2x2 matrix.
@@ -58,7 +64,7 @@ class Matrix(object):
             raise(ValueError, "Cannot calculate determinant of non-square matrix.")
         if self.h > 2:
             raise(NotImplementedError, "Calculating determinant not implemented for matrices largerer than 2x2.")
-        
+
         # TODO COMPLETED - your code here
         # The determinant of 1x1 Matrices
         if (self.h == 1 and self.w == 1):
@@ -94,12 +100,12 @@ class Matrix(object):
         # TODO COMPLETED - your code here
         # create initial martix of zeroes
         inverse_matrix = zeroes(self.h, self.w)
-        
+
         # Calculate the factor using determinant
         factor = 1 / self.determinant()
-        
+
         # Check if matrix is 1x1 or 2x2.
-        # Depending on the matrix size, the formula for calculating the inverse varies. 
+        # Depending on the matrix size, the formula for calculating the inverse varies.
         if self.h == 1:
             inverse_matrix[0][0] = factor
         elif self.h == 2:
@@ -119,14 +125,14 @@ class Matrix(object):
         Returns a transposed copy of this Matrix.
         """
         # TODO COMPLETED - your code here
-        
+
         matrix_transpose = []
         for col in range(self.w):
             new_row = []
             for row in range(self.h):
                 new_row.append(self[row][col])
             matrix_transpose.append(new_row)
-    
+
         return Matrix(matrix_transpose)
 
     def is_square(self):
@@ -135,7 +141,7 @@ class Matrix(object):
     #
     # Begin Operator Overloading
     ############################
-    def __getitem__(self,idx):
+    def __getitem__(self, idx):
         """
         Defines the behavior of using square brackets [] on instances
         of this class.
@@ -161,13 +167,13 @@ class Matrix(object):
             s += "\n"
         return s
 
-    def __add__(self,other):
+    def __add__(self, other):
         """
         Defines the behavior of the + operator
         """
         if self.h != other.h or self.w != other.w:
-            raise(ValueError, "Matrices can only be added if the dimensions are the same") 
-        #   
+            raise(ValueError, "Matrices can only be added if the dimensions are the same")
+        #
         # TODO COMPLETED - your code here
         #
         new_sum_vector = []
@@ -190,17 +196,16 @@ class Matrix(object):
           -1.0  -2.0
           -3.0  -4.0
         """
-        #   
+        #
         # TODO COMPLETED- your code here
         #
         return Matrix([[-self.g[row][col] for row in range(self.h)] for col in range(self.w)])
-        
 
     def __sub__(self, other):
         """
         Defines the behavior of - operator (as subtraction)
         """
-        #   
+        #
         # TODO COMPLETED - your code here
         #
         return (self + -other)
@@ -209,15 +214,15 @@ class Matrix(object):
         """
         Defines the behavior of * operator (matrix multiplication)
         """
-        #   
+        #
         # TODO COMPLETED - your code here
         #
         if self.w != other.h:
             raise(ValueError, "Matrix dimensions not correct so multiplication cannot be performed")
-                                  
+
         matrix_product = []
         transpose_other_matrix = other.T()
-                                  
+
         for r1 in range(self.h):
             new_row = []
             for r2 in range(transpose_other_matrix.h):
@@ -241,8 +246,7 @@ class Matrix(object):
         """
         if not isinstance(other, numbers.Number):
             raise(ValueError, "Its not a scalar number so cannot be multiplied")
-            #   
+            #
             # TODO COMPLETED - your code here
             #
         return Matrix([[other * self.g[row][col] for col in range(self.w)] for row in range(self.h)])
-            
