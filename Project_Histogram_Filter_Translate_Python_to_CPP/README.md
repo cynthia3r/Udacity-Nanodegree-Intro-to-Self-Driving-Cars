@@ -11,5 +11,6 @@ The goal of this project is to take the python code in **Project_2D_Histogram_Fi
 - **simulate.cpp** - to visualize a simulation of the localizer
 
 ## Build and run commands
-Build: ```g++ -std=c++17 tests.cpp```
-Run: ```./a.out```
+
+- Build: ```g++ -std=c++17 tests.cpp```
+- Run: ```./a.out```
