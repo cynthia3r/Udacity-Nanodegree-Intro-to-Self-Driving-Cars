@@ -40,21 +40,14 @@ using namespace std;
            0.25 0.25
 */
 vector< vector <float> > initialize_beliefs(vector< vector <char> > grid) {
-	vector< vector <float> > newGrid;
-
+	
 	// your code here
     int height = grid.size();
   	int width = grid[0].size();
   	int area = height * width;
-  	float belief_per_cell = 1.0 / area;
+  	float belief_per_cell = 1.0 / float(area);
   	
-  	vector <float> new_row;
-  	for (int row = 0; row < height ; row++) {
-    	new_row.clear();
-      	for (int col = 0 ; col < width ; col++)
-        	new_row.push_back(belief_per_cell);
-     	newGrid.push_back(new_row);
-    }
+	vector< vector <float> > newGrid(height, vector<float>(width, belief_per_cell));
 	
 	return newGrid;
 }
