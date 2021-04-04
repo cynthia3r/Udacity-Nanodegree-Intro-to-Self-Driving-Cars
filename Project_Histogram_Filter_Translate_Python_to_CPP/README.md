@@ -10,5 +10,6 @@ The goal of this project is to take the python code in **Project_2D_Histogram_Fi
 - **localizer.cpp** - Implement initialize_beliefs(), sense() and move()
 - **simulate.cpp** - to visualize a simulation of the localizer
 
-## Build commands
-```g++ -std=c++17 tests.cpp```
+## Build and run commands
+Build: ```g++ -std=c++17 tests.cpp```
+Run: ```./a.out```
