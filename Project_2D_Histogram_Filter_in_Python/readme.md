@@ -29,27 +29,27 @@ Now we have to debug. We are going to use a systematic approach to reproduce the
 ## Debug and fix the Bug:
 The user said that rectangular environments seem to be causing the bug.
 
-1. Read and Understand the error message
+1. **Read and Understand the error message:**
 If you triggered the bug, analyze the error message
 
-2. Write a test that reproduces the bug
+2. **Write a test that reproduces the bug:**
 This will help you know when you've fixed it and help you make sure you never reintroduce it in the future. You might have to try many potential solutions, so it will be nice to have a single function to call to confirm whether or not the bug is fixed
 
-3. Generate a Hypothesis
+3. **Generate a Hypothesis:**
 In order to have a guess about what's causing the problem, it will be helpful to use some Python debuggin tools
 The pdb module (python debugger) will be helpful here!
-	- Setting up the debugger
+	- **Setting up the debugger:**
 Open localizer.py and uncomment the line to the top that says import pdb
-Just before the line of code that is causing the bug new_G[int(new_i)][int(new_j)] = cell, add a new line of code that says pdb.set_trace()
+Just before the line of code that is causing the bug new_G[int(new_i)][int(new_j)] = cell, add a new line of code that says **pdb.set_trace()**
 Run your test by calling your test function (run the cell below this one)
 You should see a text entry box pop up! For now, type c into the box and hit enter to continue program execution. Keep typing c and enter until the bug is triggered again
 
-	- Using the debugger
+	- **Using the debugger:**
 The debugger works by pausing program execution wherever you write pdb.set_trace() in your code. You also have access to any variables which are accessible from that point in your code.
 
-4. Debugging
+4. **Debugging:**
 Try running your test again. This time, when the text entry box shows up, type new_i and hit enter. You will see the value of the new_i variable show up in the debugger window. Play around with the debugger: find the values of new_j, height, and width. Do they seem reasonable / correct?
 When you are done playing around, type c to continue program execution. Was the bug triggered? Keep playing until you have a guess about what is causing the bug.
 
-5. Write a Fix
+5. **Write a Fix:**
 You have a hypothesis about what's wrong. Now try to fix it. When you're done you should call your test function again. You may want to remove (or comment out) the line you added to localizer.py that says pdb.set_trace() so your test can run without you having to type c into the debugger box.
