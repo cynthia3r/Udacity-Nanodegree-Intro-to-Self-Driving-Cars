@@ -6,7 +6,7 @@ using namespace std;
 vector< vector <float> > initialize_beliefs(int height, int width) {
   
 	// OPTIMIZATION: Removed use of intermediate variables as the calculated value will be only used once
-  	float prob_per_cell = 1.0 / float(height * width) ;
+  	float prob_per_cell = 1.0 / static_cast<float>(height * width);
   
 	// OPTIMIZATION: Reserve space in memory for vectors as the vectors are not of variable length
   	vector< vector <float> > newGrid;
