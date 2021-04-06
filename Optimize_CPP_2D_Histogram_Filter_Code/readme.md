@@ -42,13 +42,49 @@ If you open main.cpp, you will see that the program runs each of the histogram f
 2. Optimize the code to make the histogram filter functions run faster utilizing the C++ optimization techniques as learned in the Udacity Self Driving Car course. You can test your results in the terminal using the same commands given previously. Also note down and compare the runtime of the optimized code and the starter code.
 
 
-### Runtime starter code:
+### Code optimization techniques used
+- reserving memory for vectors
+- passing larger variables to functions by reference
+- removing intermediate variables that were not needed
+- modifying vectors in place when possible instead of creating new vector variables
+- iterating with pre-increment iterator operator instead of post-increment
+- removing dead code (lines of code that were in the files but no longer being used)
+- avoiding extra for loops especially nested for loops when possible
+- avoiding extra if statements
+- using static and const keywords when appropriate
+
+
+### Runtime of starter code:
+Program Total Runtime of original code base =  377 milliseconds (approx.)
 ```
 number of iterations: 10000 
-duration milliseconds initialize beliefs 48.259
-duration milliseconds sense 58.87
-duration milliseconds blur 145.719
-duration milliseconds normalize 54.776
-duration milliseconds move 52.106
+duration milliseconds initialize beliefs 45.779
+duration milliseconds sense 59.627
+duration milliseconds blur 159.778
+duration milliseconds normalize 58.087
+duration milliseconds move 53.579
 ```
-### Runtime optimized code:
+
+### Improved Runtime of optimized code:
+Program Total Runtime of optimized code =  135 milliseconds (approx.)
+```
+number of iterations: 10000 
+duration milliseconds initialize beliefs 13.773
+duration milliseconds sense 15.8
+duration milliseconds blur 74.446
+duration milliseconds normalize 13.96
+duration milliseconds move 17.201
+```
+
+### Improved Runtime of optimized code built with -O3 optimization flag:
+```g++ -std=c++17 -O3 main.cpp blur.cpp initialize_beliefs.cpp move.cpp normalize.cpp print.cpp sense.cpp zeros.cpp```
+Program Total Runtime with -O3 optimization flag =  35 milliseconds (approx.)
+```
+number of iterations: 10000 
+duration milliseconds initialize beliefs 1.927
+duration milliseconds sense 3.809
+duration milliseconds blur 24.701
+duration milliseconds normalize 1.693
+duration milliseconds move 2.471
+```
+
