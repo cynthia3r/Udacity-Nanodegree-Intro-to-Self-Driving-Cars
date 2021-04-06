@@ -3,6 +3,6 @@
 
 #include <vector>
 
-std::vector< std::vector <float> > initialize_beliefs(std::vector< std::vector <char> > grid);
+std::vector< std::vector <float> > initialize_beliefs(int height, int width);
 
 #endif /* INITIALIZE_BELIEFS.H */

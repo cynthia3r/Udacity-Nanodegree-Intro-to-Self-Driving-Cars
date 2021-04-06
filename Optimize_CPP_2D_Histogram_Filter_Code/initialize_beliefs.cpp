@@ -2,28 +2,25 @@
 
 using namespace std;
 
-vector< vector <float> > initialize_beliefs(vector< vector <char> > grid) {
-
-	// initialize variables for new grid
-	vector< vector <float> > newGrid;
+// OPTIMIZATION: pass large variables by reference
+vector< vector <float> > initialize_beliefs(int height, int width) {
+  
+	// OPTIMIZATION: Removed use of intermediate variables as the calculated value will be only used once
+  	float prob_per_cell = 1.0 / float(height * width) ;
+  
+	// OPTIMIZATION: Reserve space in memory for vectors as the vectors are not of variable length
+  	vector< vector <float> > newGrid;
+  	newGrid.reserve(height);
 	vector<float> newRow;
-	int i, j, height, width, area;
-	float total, prob_per_cell;
-
-	height = grid.size();
-	width = grid[0].size();
-	area = height * width;
-
-	// calculate initial grid values
-	prob_per_cell = 1.0 / ( (float) area) ;
-
-	// store initial values in a new 2D grid with same size as grid
-	for (i=0; i<grid.size(); i++) {
-		newRow.clear();
-		for (j=0; j<grid[0].size(); j++) {
+  	newRow.reserve(width);
+  
+  	// OPTIMIZATION: removed nested for loops as each element of the 2D vector has the same exact value
+  	// so we only need to define the row variable once
+  	for (int i = 0; i < width ; ++i)
 			newRow.push_back(prob_per_cell);
-		}
+  
+	for (int j = 0; j < height; ++j)
 		newGrid.push_back(newRow);
-	}
+  
 	return newGrid;
 }

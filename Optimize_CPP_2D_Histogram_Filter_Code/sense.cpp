@@ -2,33 +2,23 @@
 
 using namespace std;
 
-vector< vector <float> > sense(char color, vector< vector <char> > grid, vector< vector <float> > beliefs,  float p_hit, float p_miss) 
+// OPTIMIZATION: Pass larger variables by reference
+vector< vector <float> > sense(char color, vector< vector <char> > &grid, vector< vector <float> > &beliefs,  float p_hit, float p_miss) 
 {
-	vector< vector <float> > newGrid;
-	vector<float> row, newRow;
 
-	float prior, p;
+	int height = grid.size();
+	int width = grid[0].size();
 
-	char cell;
-
-	int i, j, height, width;
-	height = grid.size();
-	width = grid.size();
-
-	for (i=0; i<grid.size(); i++) {
-		newRow.clear();
-		for (j=0; j<grid[0].size(); j++) {
-			prior = beliefs[i][j];
-			cell = grid[i][j];
-			if (cell == color) {
-				p = prior * p_hit;
+	for (int i = 0; i < height ; ++i) {
+		for (int j = 0; j < width; ++j) {
+			// OPTIMIZATION: if else statements might be faster than two if statements, so updated the below code
+			if (grid[i][j] == color) {
+              // OPTIMIZATION: Removed intermediate variables prior and cell instead directly calculating the values and updating in beliefs vector
+				beliefs[i][j] = beliefs[i][j] * p_hit;
 			}
-			if (cell != color) {
-				p = prior * p_miss;
-			}
-			newRow.push_back(p);
+      		else
+            	beliefs[i][j] = beliefs[i][j] * p_miss;   
 		}
-		newGrid.push_back(newRow);
 	}
-	return newGrid;
+	return beliefs;
 }
