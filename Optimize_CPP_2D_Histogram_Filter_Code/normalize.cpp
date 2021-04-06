@@ -5,8 +5,8 @@ using namespace std;
 vector< vector<float> > normalize(vector< vector <float> > &grid) {
 
   	// OPTIMIZATION: Removed intermediate variables and steps that are not needed.
-	float total = 0.0;
-  int i, j;
+	float total{0.0};
+  	int i, j;
   	int height = grid.size();
   	int width = grid[0].size();
   

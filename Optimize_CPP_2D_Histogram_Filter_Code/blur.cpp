@@ -18,8 +18,8 @@ vector < vector <float> > blur(vector < vector < float> > &grid, float blurring)
     // bracket syntax: vector<int> foo = {1, 2, 3, 4} 
     // instead of calculating these vectors with for loops 
     // and push back
-  	static vector <int> DX = {-1, 0, 1};
-  	static vector <int> DY = {-1, 0, 1};
+  	static vector <int> DX{-1, 0, 1};
+  	static vector <int> DY{-1, 0, 1};
   
   	static vector < vector <float> > WINDOW = { {CORNER, ADJACENT, CORNER}, {ADJACENT, CENTER, ADJACENT}, {CORNER, ADJACENT, CORNER} };
   
