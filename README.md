@@ -39,9 +39,8 @@ course will be the first step in a long and rewarding journey towards C++ expert
 will start to explore how to write good code that runs correctly. We’ll focus primarily on the low level
 language features of C++ which can make C++ fast, but we’ll also discuss other best practices as well.
 
-#### Course Project: Translate Python to C++
-In this project you’ll apply your knowledge of C++ syntax by
-translating the Histogram Filter code from the first course into C++.
+#### Course Project: 2D Histogram Filter in C++
+In this project you’ll translate the Histogram Filter code you wrote earlier in Python into C++
 
 #### Course Project: Performant C++
 A self-driving car can’t afford to waste any cycles or memory
